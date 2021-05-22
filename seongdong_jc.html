@@ -608,7 +608,7 @@ window.onload = cctvInit;
 window.onunload = cctvFinish;
 function cctvInit(){
 
-	try{
+    try {
 		var kind = 'Seoul';
 		var cctvch = '52';
 		var cctvip = 'null';
@@ -836,13 +836,13 @@ function cctvInit(){
 				streamCctv.cctvPlay();
 				break;
 			}
-		}
-		//~ setTimeout(function(){location.reload()},1000 * 30); <!-- 기존 setInterval("self.close()", 1000 * 60); -->
-		<!-- 송출 -->
-		}
-		catch(e) {
-            //~ setTimeout(function(){location.reload()},1000 * 30);
-       }
+        }
+    } catch(e) {
+    }
+
+    setInterval(function () {
+        location.reload();
+    }, 1000 * 55);
 }
 
 function cctvFinish(){
