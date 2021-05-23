@@ -1,0 +1,291 @@
+@charset "utf-8";
+
+/* common */
+p#btn_viewbig {position:absolute; left:-29px; top:33px;z-index:4;}
+.png{_display:inline-block;}
+.png img{_filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);}
+
+div.mapMenu {position:absolute;left:0;top:0;height:32px;background:#e0e0e0;width:100%;z-index:2;border-bottom:1px solid #cacaca;}
+ul.menuPage {float:left;padding-left:4px;}
+ul.menuPage li {float:left; overflow:hidden; margin-right:4px;}
+ul.menuPage li.lst {background:none;}
+ul.menuPage li a {color:#8086a2;white-space:nowrap;}
+ul.menuPage li a.on, ul.menuPage li a:hover {font-weight:bold; letter-spacing:-0.09em;}
+
+div.menuMap {position:absolute; left:3px; top:4px;z-index:1000;}
+ul.menuView {float:left;}
+ul.menuView li {float:left; margin-right:2px;}
+ul.menuView2 {float:left; padding:5px 0 0 7px;}
+ul.menuView2 li {float:left; height:22px;}
+ul.menuView2 li a span {display:block; float:left;text-align:center; height:17px; margin-top:-5px; background:url('../../images/map/bg_trafficm_off_right.gif') no-repeat right 0; padding:5px 7px 0 4px; color:#3474ea;}
+ul.menuView2 li a {float:left; color:#303030; background:url('../../images/map/bg_trafficm_off_left.gif') no-repeat left 0; display:block; height:17px; padding:5px 0 0 3px;}
+ul.menuView2 li.on {background:url('../../images/map/bg_trafficm_on_right.gif') no-repeat right 0; font-weight:bold; letter-spacing:-0.09em;}
+ul.menuView2 li a:hover, ul.menuView2 li.on a {color:#607cd4; background:url('../../images/map/bg_trafficm_on_left.gif') no-repeat left 0; font-weight:bold; letter-spacing:-0.09em;}
+ul.menuView2 li a:hover span,
+/*ul.menuView2 li a:active span, */
+ul.menuView2 li.on a span {background:url('../../images/map/bg_trafficm_on_right.gif') no-repeat right 0; color:#ffe363;}
+
+div.popState {min-width:241px; position:absolute; width:256px;height:109px}
+div.popState span.close {position:absolute;right:20px;top:30px;z-index:3000;}
+div.popState .shad {margin-right:6px; border:3px solid #4f516e; padding:10px 8px 15px 10px; background:#fff; margin-top:19px;}
+div.popState .shad dl{min-width:231px;_width:231px;}
+div.popState .shad dl dt {position:relative;font-size:12px; font-weight:bold; color:#607cd4; padding-bottom:7px;  margin-bottom:7px;border-bottom:1px solid #e5e5e5;}
+
+div.popState .shad dl dd {white-space:nowrap;line-height:18px; color:#505050; font-size:11px;}
+div.popState .shad dl dd strong {font-weight:bold; /* background:url('../../images/map/bg_traffic_pop01.gif') no-repeat right 0; */ padding-right:8px; margin-right:7px;}
+div.popState .shad dl dd span.leng {/* background:url('../../images/map/bg_traffic_pop01.gif') no-repeat right 0; */ padding-right:8px; margin-right:7px;}
+div.popState .shad dl dd strong.cl01 {color:#66a726;}
+div.popState .shad dl dd strong.cl02 {color:#ffba00;}
+div.popState .shad dl dd strong.cl03 {color:#d21400;}
+div.popState .shad dl dd strong.cl04 {color:#999; background:none;font-weight:normal;}
+div.popState p { margin-top:-3px; text-align:center;z-index:1000;}
+
+
+/* 번호판 2011-01-11추가 */
+p.numb {z-index:1000; width:14px; height:14px; background:url('../../images/map/ico_cir_num.png') no-repeat 0 0; font-size:11px; color:#FFFFFF; font-weight:bold; font-family:Arial; text-align:center; padding:3px 3px;}
+p.numb a {font-size:11px; color:#FFFFFF; font-weight:bold; font-family:Arial;}
+
+/*수정_장지원*/
+/* ���� �ϴ� �ӵ����� */
+div.stateBox {visibility:false; z-index:1000; position:absolute;bottom:10px;right:10px;z-index:5;background:url('/contents/images/map/bg_traffic02.png') no-repeat left 0; width:281px; height:86px; padding:10px 9px 0 10px; overflow:visible;}
+ul.stateInfo {overflow:hidden; float:left; width:100%; position:relative;}
+ul.stateInfo li {color:#fff; float:left; font-size:11px;}
+ul.stateInfo li.fir {width:200px;}
+ul.stateInfo li.re {padding-right:10px; margin-right:6px; background:url('/contents/images/map/bg_traffic_lpop02.gif') no-repeat right 0;}
+ul.stateInfo li.re img {margin-right:1px;}
+ul.stateInfo li a {color:#fff; font-size:11px; color:#7884a7;}
+ul.stateLine {overflow:hidden; float:left; width:100%; background:url('/contents/images/map/bg_traffic_details.gif') no-repeat left 0; margin:5px 0 11px 0;}
+ul.stateLine li {font-size:11px; float:left; margin-top:9px;}
+ul.stateLine li a {font-size:11px; margin-right:57px;}
+ul.stateLine li.m01 a {color:#66a726;}
+ul.stateLine li.m02 a {color:#ffba00;}
+ul.stateLine li.m03 a {color:#d21400;}
+ul.stateLine li.m04 a {color:#999; margin-right:0px;}
+ul.stateComment {clear:both;}
+ul.stateComment li {color:#667091; font-size:11px; word-spacing:-1px; letter-spacing:-1px; background:url('/contents/images/map/ico_sblue.png') no-repeat 0 4px; padding-left:8px; line-height:16px; overflow:visible;}
+
+/* �˾����̾�02 ���� �ӵ� �˾�â */
+
+div.trafficPop {padding-bottom:13px; z-index:500;overflow:visible; position:absolute;bottom:70px;z-index:3; }
+div.trafficGoods {right:210px;}
+div.trafficNormal {right:140px;}
+div.trafficBad {right:75px; }
+div.trafficPop p {position:absolute;bottom:0;left:50%;margin-left:-8px;}
+
+.trafficPop {border:none;}
+.trafficPop ul {padding:8px 10px; border:1px solid #111114;}
+.trafficPop li {margin:0; padding:0 0 0 58px; height:15px;white-space:nowrap;position:relative;}
+.trafficPop strong {left:0;font-weight:normal;position:absolute; color:#000; float:left;}
+.trafficPop span {font-weight:normal; color:#fff; }
+
+div.trafficGoods ul {font-size:11px; background:#4c9800;border:1px solid #111114;}
+div.trafficNormal ul {font-size:11px; background:#fab700;border:1px solid #111114;}
+div.trafficBad ul {font-size:11px; background:#c41301;border:1px solid #111114;}
+
+
+/* ���߻�Ȳ */
+/*
+div.popState .construction {margin-right:0px; border:3px solid #4f516e; padding:0px 0px 0px 0px; background:#fff;}
+div.popState .construction dl {min-width:219px;_width:219px; background:url('../../images/map/bg_construction.gif') no-repeat 1px 30px;}
+div.popState .construction dl dt {position:absolute;font-size:12px; font-weight:bold; color:#607cd4; padding-bottom:7px;  margin-bottom:7px;border-bottom:1px solid #e5e5e5;}
+div.popState .construction dl dd {white-space:nowrap; line-height:12px; color:#505050; font-size:11px; margin-bottom:4px; padding-left:40px;}
+div.popState .construction dl dd.nm {font-weight:bold; margin-bottom:5px; padding-top:4px;}
+*/
+
+div.popState dl.construction {margin-right:6px; background:#fff;}
+div.popState dl.construction {min-width:219px;_width:219px; background:url('../../images/map/btn_repair.png') no-repeat 1px 30px;}
+div.popState dl.construction dt {position:relative;font-size:12px; font-weight:bold; color:#607cd4; padding-bottom:7px;  margin-bottom:7px;border-bottom:1px solid #e5e5e5;}
+div.popState dl.construction dd {white-space:nowrap; line-height:12px; color:#505050; font-size:11px; margin-bottom:4px; padding-left:40px;}
+div.popState dl.construction dd.nm {font-weight:bold; margin-bottom:5px; padding-top:4px; text-overflow:ellipsis; overflow:hidden;}
+
+div.popState dl.accident {margin-right:6px; background:#fff;}
+div.popState dl.accident {min-width:219px;_width:219px; background:url('../../images/map/btn_accident.png') no-repeat 1px 30px;}
+div.popState dl.accident dt {position:relative;font-size:12px; font-weight:bold; color:#607cd4; padding-bottom:7px;  margin-bottom:7px;border-bottom:1px solid #e5e5e5;}
+div.popState dl.accident dd {white-space:nowrap; line-height:12px; color:#505050; font-size:11px; margin-bottom:4px; padding-left:40px;}
+div.popState dl.accident dd.nm {font-weight:bold; margin-bottom:5px; padding-top:4px; text-overflow:ellipsis; overflow:hidden;}
+
+div.popState dl.event {margin-right:6px; background:#fff;}
+div.popState dl.event {min-width:219px;_width:219px; background:url('../../images/map/btn_event.png') no-repeat 1px 30px;}
+div.popState dl.event dt {position:relative;font-size:12px; font-weight:bold; color:#607cd4; padding-bottom:7px;  margin-bottom:7px;border-bottom:1px solid #e5e5e5;}
+div.popState dl.event dd {white-space:nowrap; line-height:12px; color:#505050; font-size:11px; margin-bottom:4px; padding-left:40px;}
+div.popState dl.event dd.nm {font-weight:bold; margin-bottom:5px; padding-top:4px; text-overflow:ellipsis; overflow:hidden;}
+
+div.popState dl.trouble {margin-right:6px; background:#fff;}
+div.popState dl.trouble {min-width:219px;_width:219px; background:url('../../images/map/btn_trouble.png') no-repeat 1px 30px;}
+div.popState dl.trouble dt {position:relative;font-size:12px; font-weight:bold; color:#607cd4; padding-bottom:7px;  margin-bottom:7px;border-bottom:1px solid #e5e5e5;}
+div.popState dl.trouble dd {white-space:nowrap; line-height:12px; color:#505050; font-size:11px; margin-bottom:4px; padding-left:40px;}
+div.popState dl.trouble dd.nm {font-weight:bold; margin-bottom:5px; padding-top:4px; text-overflow:ellipsis; overflow:hidden;}
+
+div.popState dl.alert {margin-right:6px; background:#fff;}
+div.popState dl.alert {min-width:219px;_width:219px; background:url('../../images/map/btn_alert.gif') no-repeat 1px 30px;}
+div.popState dl.alert dt {position:relative;font-size:12px; font-weight:bold; color:#607cd4; padding-bottom:7px;  margin-bottom:7px;border-bottom:1px solid #e5e5e5;}
+div.popState dl.alert dd {white-space:nowrap; line-height:12px; color:#505050; font-size:11px; margin-bottom:4px; padding-left:40px;}
+div.popState dl.alert dd.nm {font-weight:bold; margin-bottom:5px; padding-top:4px; text-overflow:ellipsis; overflow:hidden;}
+
+div.popState dl.death {margin-right:6px; background:#fff;}
+div.popState dl.death {min-width:219px;_width:219px; background:url('../../images/map/btn_deathaccident.png') no-repeat 1px 30px;}
+div.popState dl.death dt {position:relative;font-size:12px; font-weight:bold; color:#607cd4; padding-bottom:7px;  margin-bottom:7px;border-bottom:1px solid #e5e5e5;}
+div.popState dl.death dd {white-space:nowrap; line-height:12px; color:#505050; font-size:11px; margin-bottom:4px; padding-left:40px;}
+div.popState dl.death dd.nm {font-weight:bold; margin-bottom:5px; padding-top:4px;}
+div.popState dl.death dd strong.rred {color:#bc1200; text-align:right;}
+div.popState dl.death dd strong.lblue {color:#607cd4;}
+div.popState dl.death dd strong.rblue {color:#607cd4; text-align:right;}
+
+div.popState dl.jaywork {margin-right:6px; background:#fff;}
+div.popState dl.jaywork {min-width:219px;_width:219px; background:url('../../images/map/btn_jayworking.png') no-repeat 1px 30px;}
+div.popState dl.jaywork dt {position:relative;font-size:12px; font-weight:bold; color:#607cd4; padding-bottom:7px;  margin-bottom:7px;border-bottom:1px solid #e5e5e5;}
+div.popState dl.jaywork dd {white-space:nowrap; line-height:12px; color:#505050; font-size:11px; margin-bottom:4px; padding-left:40px;}
+div.popState dl.jaywork dd.nm {font-weight:bold; margin-bottom:5px; padding-top:4px;}
+div.popState dl.jaywork dd strong.rred {color:#bc1200; text-align:right;}
+div.popState dl.jaywork dd strong.lblue {color:#607cd4;}
+div.popState dl.jaywork dd strong.rblue {color:#607cd4; text-align:right;}
+
+/* CCTV �������� */
+div.screenshop {cursor:move; -webkit-user-select: none; border:1px solid #191b27; position:absolute; left:0px; top:0px; background:#31333e;width:232px; height:248px; z-index:6;}
+div.cctv p.hd {color:#607cd4; font-size:14px; font-weight:bold; padding:8px 0 10px 10px; background:url('../../images/map/bg_pop_cctv.gif') repeat-x left bottom #31333e;}
+div.cctv p.bot {font-size:11px; color:#b4b4b4; text-align:right; padding-right:12px; padding-top:12px;}
+div.cctv p.bot02 {color:#b4b4b4; font-size:12px; padding-top:0px; padding-right:12px; text-align:right; margin-bottom:4px;}
+div.cctv p.bot03 {color:#505050; font-size:12px; padding-top:6px; padding-left:12px; text-align:left;}
+div.cctv p.hd span {position:absolute; right:8px; top:8px;}
+div.cctv p.hd span a.pdr {padding-right:4px;}
+div.cctv div.player {background:#000; margin:auto; margin-top:11px; text-align:center; font-size:11px; color:#505050;}
+div.cctv div.screenshot_area {width:208px; height:170px;}
+div.cctv div.cctv_area {background:#000; /* width:320px; height:244px; */}
+
+div.video {-webkit-user-select: none; border:1px solid #191b27; position:absolute; left:0px; top:0px; /* background:#31333e; */background:#000000; width:100%; height:100%; z-index:6;}
+div.video02 {border:1px solid #191b27; position:absolute; left:0px; top:0px; background:#31333e; width:344px; height:323px; z-index:7;}
+div.video02 p.hd {color:#fff;}
+div.video02 p.bot02 {text-align:left; color:#60c7d4;}
+div.video02 ul {overflow:hidden; position:absolute; right:12px; bottom:5px;}
+div.video02 ul li {float:left;}
+
+/* */
+/* pop_route 중복 제거_장지원 */
+/* div.pop_route {display:none; position:absolute; left:20px;top:50px; height:83px; padding:10px 10px 0 17px;z-index:6; background:url('../../img/map/bg_pop_route.png') repeat-x 0 0; border:1px solid #9596a7;}
+div.pop_route ul {overflow:hidden; float:left;}
+div.pop_route li {float:left; width:53px; font-size:11px; color:#505050; letter-spacing:-1.5px; background:url('../../img/map/ico_nxt.gif') no-repeat right 10px;}
+div.pop_route li.last {background:none;}
+div.pop_route li strong {display:block; padding-left:4px;}
+div.pop_route li span {display:block; width:42px; text-align:center; padding-top:5px;} */
+
+
+/* */
+div.pop_accident {position:absolute;left:400px;top:50px;min-width:154px; padding:5px 5px;z-index:6;}
+div.pop_accident span.close {display:block;position:absolute;right:20px;top:15px;z-index:3;}
+div.pop_accident {width:154px;}
+div.pop_accident .area {margin-right:6px; border:3px solid #4f516e; padding:10px 8px 7px 10px; background:#fff;}
+div.pop_accident .area dl {min-width:135px;_width:135px;}
+div.pop_accident .area dl dt {position:relative;font-size:12px; font-weight:bold; color:#505050; padding-bottom:7px;  margin-bottom:7px;border-bottom:1px solid #e5e5e5;}
+div.pop_accident .area dl dd {white-space:nowrap; line-height:12px; color:#505050; font-size:11px; margin-bottom:4px;}
+div.pop_accident .area dl dd.death {color:#d21400; background:url('../../images/ico_sred.gif') no-repeat 1px 3px; padding-left:10px;}
+div.pop_accident .area dl dd.injury {color:#607cd4; background:url('../../images/ico_sblue.gif') no-repeat 1px 3px; padding-left:10px;}
+div.pop_accident p { margin-top:-3px; text-align:center;z-index:1000;}
+/*수정_장지원*/
+div.distance {z-index:6; position:absolute; width:131px; height:18px; background:url('/contents/images/map/bg_distance.gif') no-repeat right 0; color:#191919; position:relative; padding:6px 0 0 5px; border-left:2px solid #4267d9; overflow:hidden;}
+div.distance a.clse {position:absolute; right:3px; top:3px;}
+
+/* url */
+div.popState_url {z-index:6; background:url('/contents/images/map/bg_pop.png') no-repeat right bottom; min-width:409px;_width:409px;} /*수정 _장지원*/
+div.popState_url div.shad {border-top:3px solid #4f516e; margin:0 3px 4px 0; border-left:3px solid #4f5164;}
+div.popState_url span.close {display:block;position:absolute;right:20px;top:15px;z-index:3;}
+div.popState_url p.arrow {position:absolute; bottom:-10px; left:47%; text-align:center;z-index:1000;}
+div.popState_url dl.url {min-width:403px;_width:403px; margin-right:5px;}
+div.popState_url dl.url dt {font-size:12px; color:#607cd4; font-weight:bold; padding:10px 0 10px 10px; border-bottom:1px solid #e5e5e5;}
+div.popState_url dl.url dd {padding:10px 0 14px 10px;}
+div.popState_url dl.url dd input.urlbox {width:308px; height:18px; border:1px solid #607cd4; margin-right:6px; font-size:12px; color:#505050; padding:2px 0 0 10px;}
+div.popState_url dl.url dd * {vertical-align:top;}
+
+/* 2011-03-07 수정 */
+ul.tab_traffic {overflow:flow; height:30px; width:303px; background:url('../images/traffic/bg_sudden_tab.gif') repeat-x left bottom; margin:20px 0 0 20px;}
+ul.tab_traffic li {float:left; margin-bottom:-2px;}
+div.search02 {float:left;width:350px;height:90px; border-bottom:1px solid #afb2b7; margin-top:14px;}
+div.search02 dl {overflow:hidden; margin-left:20px; padding:0 0 8px 5px; background:url('../images/traffic/bg_trtab.gif') repeat-x left bottom; width:305px;}
+div.search02 dl dt {float:left; color:#505050; font-size:12px; font-weight:bold; width:50px; padding-top:4px;}
+div.search02 dl dd input.serchbox {border:3px solid #607cd4; margin:0 6px 0 0; width:170px;}
+div.search02 fieldset * {vertical-align:top;}
+div.search02 ul.tab_roadkind {overflow:hidden; clear:left; padding-left:26px; padding-top:8px;}
+div.search02 ul.tab_roadkind li {float:left; margin-right:4px; font-size:12px; font-weight:bold; color:#505050;}
+div.search02 ul.tab_roadkind li.txt {margin:6px 10px 0 0;}
+.sshot {padding-top:3px;}
+.view_lo {width:90px; height:19px;}
+
+
+.wrapword{ 
+    white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */ 
+    white-space: -pre-wrap;      /* Opera 4-6 */ 
+    white-space: -o-pre-wrap;    /* Opera 7 */ 
+    white-space: pre-wrap;       /* css-3 */ 
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */ 
+}
+
+
+/* route 2011-03-16 수정 */
+div.search_route {float:left; width:350px; height:185px; border-bottom:1px solid #afb2b7;}
+div.search_route ul.search_box {overflow:hidden; margin:20px 0 0 20px;}
+div.search_route ul.search_box li {margin-bottom:3px;}
+div.search_route ul.search_box li strong {color:#505050; font-size:12px; width:50px; display:block; float:left; padding-top:5px;}
+div.search_route ul.search_box li * {vertical-align:top;}
+div.search_route ul.search_box li input.route_text {
+	width:179px;
+	height:16px;
+	padding:3px;
+	border-left:1px solid #607cd4; 
+	border-top:1px solid #607cd4; 
+	border-bottom:1px solid #607cd4; 
+	border-right:none;
+	color:#707070; 
+	letter-spacing:-1px;
+	font-family:Dotum, Arial, Geneva, Helvetica, sans-serif;
+}
+* html a.search {position:relative; top:1px;}
+
+
+.search_condition {
+	width:250px;
+	margin:8px 0 0 70px;
+}
+.sel_route {color:#707070; margin-bottom:5px;}
+.sel_route input {vertical-align:-3px;}
+.sel_route label {cursor:pointer;}
+.btnlist {*zoom:1; width:226px;}
+.btnlist:after {content:""; display:block; clear:both;}
+.btnlist .fl {float:left;}
+.btnlist .fl li {float:left;}
+.btnlist .fr {float:right;}
+.btnlist a {font-size:0; line-height:0;}
+
+/* 2011-03-14 수정 */
+div.view_state .route_info ul {width:291px; height:27px; background:url('../images/traffic/bg_tit_route.gif') no-repeat left top; overflow:hidden; padding:15px 0 0 13px; margin-bottom:20px;}
+div.view_state .route_info li {float:left; letter-spacing:-1px; color:#bc1200; font-weight:bold; font-size:12px; width:130px; padding-left:8px; background:url('../img/ico_sblue.gif') no-repeat left 4px;}
+div.view_state .route_info li strong {color:#000;}
+
+
+/* etc Map 노드검색 */
+div.search_node {float:left; width:350px; height:65px; border-bottom:1px solid #afb2b7;}
+div.search_node ul.search_box {overflow:hidden; margin:20px 0 0 20px;}
+div.search_node ul.search_box li {margin-bottom:3px;}
+div.search_node ul.search_box li strong {color:#505050; font-size:12px; width:50px; display:block; float:left; padding-top:5px;}
+div.search_node ul.search_box li * {vertical-align:top;}
+
+
+/* 191110 조병조 추가  */
+
+/* 로드뷰 컨트롤러 */
+#roadviewControl {position:absolute;top:40px;right:70px;width:85px;height:30px;padding:2px; background: #f7f7f7;border-radius: 4px;border: 1px solid #c8c8c8;box-shadow: 0px 1px #888;cursor: pointer; z-index: 5;}
+#roadviewControl span {background: url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mapworker.png) no-repeat;  padding-left:23px;width:100%;height:24px;font-size: 12px;display: inline-block;line-height: 2;font-weight: bold;text-align:center;}
+#roadviewControl.active {background: #ccc;box-shadow: 0px 1px #5F616D;border: 1px solid #7F818A;}
+#roadviewControl.active span {background: url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mapworker_on.png) no-repeat;color: #4C4E57;}
+
+/* 지형도 컨트롤러 */
+#terrainControl {position:absolute;top:75px;right:70px;width:85px;height:30px;padding:2px; background: #f7f7f7;border-radius: 4px;border: 1px solid #c8c8c8;box-shadow: 0px 1px #888;cursor: pointer; z-index: 5;}
+#terrainControl span {background: url(/contents/images/mountain.png) no-repeat;  padding-left:23px;width:100%;height:24px;font-size: 12px;display: inline-block;line-height: 2;font-weight: bold;text-align:center;}
+#terrainControl.active {background: #ccc;box-shadow: 0px 1px #5F616D;border: 1px solid #7F818A;}
+#terrainControl.active span {background: url(/contents/images/mountain.png) no-repeat;color: #4C4E57;}
+
+/* 지적편집도 컨트롤러 */
+#usedistrictControl {position:absolute;top:110px;right:70px;width:85px;height:30px;padding:2px; background: #f7f7f7;border-radius: 4px;border: 1px solid #c8c8c8;box-shadow: 0px 1px #888;cursor: pointer; z-index: 5;}
+#usedistrictControl span {background: url(/contents/images/intelligence.png) no-repeat;  padding-left:23px;width:100%;height:24px;font-size: 12px;display: inline-block;line-height: 2;font-weight: bold;text-align:center;}
+#usedistrictControl.active {background: #ccc;box-shadow: 0px 1px #5F616D;border: 1px solid #7F818A;}
+#usedistrictControl.active span {background: url(/contents/images/intelligence.png) no-repeat;color: #4C4E57;}
+
+/* 추가 종료 */
